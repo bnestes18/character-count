@@ -3,7 +3,11 @@ let charCountMessage = document.querySelector('#character-count');
 let textbox = document.querySelector('#text');
 
 function charsAndWordsCount() {
-        wordCountMessage.textContent = textbox.value.trim().split(/\s+/).length;
+        wordCountMessage.textContent = textbox.value.trim().split(/\s+/)
+                                                           .filter(function(text) {
+                                                                return text !== "";
+                                                                })
+                                                           .length;
         charCountMessage.textContent = textbox.value.length;
 }
 
