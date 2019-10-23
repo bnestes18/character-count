@@ -1,9 +1,10 @@
-let countMessage = document.querySelector('#character-count');
+let wordCountMessage = document.querySelector('#word-count');
+let charCountMessage = document.querySelector('#character-count');
+let textbox = document.querySelector('#text');
 
-function charCount(event) {
-    if (event.target.matches('#text')) {
-        countMessage.textContent = event.target.value.length; 
-    };
+function charsAndWordsCount() {
+        wordCountMessage.textContent = textbox.value.trim().split(/\s+/).length;
+        charCountMessage.textContent = textbox.value.length;
 }
 
-window.addEventListener('input', charCount, false);
+textbox.addEventListener('input', charsAndWordsCount, false);

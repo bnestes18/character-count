@@ -28,6 +28,9 @@ textarea {
     width: 60rem;
     height: 35rem;
     margin-top: 2rem;
+    padding: 2rem;
+    border: 2px solid;
+    border-radius: 5px;
 }
 
 label, p {
