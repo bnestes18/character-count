@@ -13,7 +13,10 @@
         <label for="text">Enter your text in the box below.</label>
         <textarea id="text"></textarea>
     
-        <p>You've written <strong><span id="word-count">0</span> words</strong> and <strong><span id="character-count">0</span> characters</strong>.</p>
+        <div aria-live="polite" aria-atomic="true">
+            <p>You've written <strong id="word-text"><span id="word-count">0</span> words</strong> and <strong><span id="character-count">0</span> characters</strong>.</p>
+        </div>
+       
     </div>
 
     <script src="charCount.js"></script>
