@@ -1,21 +1,35 @@
 // VARIABLES
 let textarea = document.getElementById('text');
-let count = document.getElementById('character-count');
-let message = document.querySelector('#message>strong');
+let charCount = document.getElementById('character-count');
+let wordCount = document.getElementById('word-count');
+let message = document.querySelector('#message');
+const regex = /\s./gm;
 
 
 // FUNCTIONS
-// This functin renders the number of characters that a user types, onto the screen
-function renderCount(e) {
-    // Make sure that the textarea input field is being targeted
-    if (e.target === textarea) {
-        // Render the message with the character count
-        count.textContent = e.target.value.length
-        message.textContent = count.textContent === '1' ? 
-            count.textContent + ' character' : 
-            count.textContent + ' characters'
-    }
+// This function renders the number of characters that a user types, onto the screen
+function renderCounts() {
+        // Get the value of the textarea input string
+        let string = textarea.value;
+
+        // Split the input string into words
+        let words = string.split(regex).filter(function(char) {
+            return char !== ""
+        });
+
+        // Render the word count (make words plural if there is more than one word detected)
+        wordCount.textContent = words.length === 1 ? 
+            words.length + ' word' : 
+            words.length + ' words';
+
+        // Split the input string into characters
+        let characters = string.split("");
+
+        // Render the character count (make words plural if there is more than one character detected)
+        charCount.textContent = characters.length === 1 ? 
+            characters.length + ' character' : 
+            characters.length + ' characters';  
 }
 
 // EVENT LISTENERS
-document.addEventListener('input', renderCount);
+textarea.addEventListener('input', renderCounts);
