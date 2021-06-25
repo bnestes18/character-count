@@ -3,7 +3,7 @@ let textarea = document.getElementById('text');
 let charCount = document.getElementById('character-count');
 let wordCount = document.getElementById('word-count');
 let message = document.querySelector('#message');
-const regex = /\s./gm;
+const regex = /\s/gm;
 
 
 // FUNCTIONS
